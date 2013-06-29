@@ -1,8 +1,6 @@
-var express     = require('express'),
-    app         = express();
+var app = require('express').createServer();
 
-app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/express.html');
+app.get('/user/:id', function(req, res){
+    res.send('user ' + req.params.id);
 });
-    
 app.listen(3000);
