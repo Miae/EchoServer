@@ -1,15 +1,9 @@
-var net = require('net');
-var server = net.createServer(function (stream) {
-  stream.setEncoding('utf8');
-  stream.on('connect', function () {
-    stream.write('hello\r\n');
-  });
-  stream.on('data', function (data) {
-    stream.write(data);
-  });
-  stream.on('end', function () {
-    stream.write('goodbye\r\n');
-    stream.end();
-  });
-});
-server.listen(8124, 'localhost');
+var sys = require("sys"),  
+my_http = require("http");  
+my_http.createServer(function(request,response){  
+    sys.puts("I got kicked");  
+    response.writeHeader(200, {"Content-Type": "text/plain"});  
+    response.write("Hello World");  
+    response.end();  
+}).listen(8080);  
+sys.puts("Server Running on 8080");   
