@@ -1,5 +1,5 @@
-var express = require('express')
-  , app = express.createServer();
+var express = require('express');
+var app = express();
 
 var users = [{ name: 'tj' }];
 
@@ -14,6 +14,7 @@ app.all('/user/:id/:op?', function(req, res, next){
 
 app.get('/user/:id', function(req, res){
   res.send('viewing ' + req.user.name);
+  
 });
 
 app.get('/user/:id/edit', function(req, res){
