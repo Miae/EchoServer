@@ -1,8 +1,7 @@
 var express = require('express');
-var app = express();
-
-app.put('/user/:id', function(req, res){
-  res.send('updating ' + req.params.id);
+var app = express();  
+app.put('/rest/:input/edit', function(req, res){
+  res.send('updating ' + req.params.input);
 });
 
 app.get('*', function(req, res){
